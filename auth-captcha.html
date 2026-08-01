@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <meta name="referrer" content="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'unsafe-inline' https://challenges.cloudflare.com; connect-src https://challenges.cloudflare.com; frame-src https://challenges.cloudflare.com; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Pawma security check</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+      }
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: transparent;
+      }
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      #challenge {
+        width: 100%;
+        min-height: 65px;
+      }
+    </style>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=turnstileReady&render=explicit"
+      async
+      defer
+    ></script>
+  </head>
+  <body>
+    <div id="challenge" role="group" aria-label="Security check"></div>
+    <script>
+      const post = (type, token) => {
+        if (!window.ReactNativeWebView) return;
+        const message = token ? { type, token } : { type };
+        window.ReactNativeWebView.postMessage(JSON.stringify(message));
+      };
+
+      window.turnstileReady = () => {
+        const params = new URL(window.location.href).searchParams;
+        const sitekey = params.get("sitekey") || "";
+        const theme = params.get("theme") === "dark" ? "dark" : "light";
+
+        if (!/^[A-Za-z0-9_-]{10,120}$/.test(sitekey)) {
+          post("config-error");
+          return;
+        }
+
+        window.turnstile.render("#challenge", {
+          sitekey,
+          theme,
+          size: "flexible",
+          appearance: "interaction-only",
+          action: "pawma_auth",
+          callback: (token) => post("token", token),
+          "error-callback": () => post("error"),
+          "expired-callback": () => post("expired"),
+          "timeout-callback": () => post("timeout"),
+          "unsupported-callback": () => post("error"),
+        });
+      };
+    </script>
+  </body>
+</html>
