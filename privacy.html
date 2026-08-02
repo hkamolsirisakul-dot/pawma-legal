@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pawma — Privacy Policy</title>
+<title>Pawma: Privacy Policy</title>
 <style>
   :root { color-scheme: light dark; }
   body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -14,8 +14,8 @@
 </style>
 </head>
 <body>
-<h1>Pawma — Privacy Policy</h1>
-<p class="meta">Last updated: 9 July 2026</p>
+<h1>Pawma: Privacy Policy</h1>
+<p class="meta">Last updated: 2 August 2026</p>
 
 <p>Pawma ("we", "us") is an owner-held pet health record. This policy explains what we
 collect, why, and your choices. Questions: <a href="mailto:swagwithus@thewaglabco.com">swagwithus@thewaglabco.com</a>.</p>
@@ -26,42 +26,59 @@ The data controller is The Wag Lab Co.</p>
 
 <h2>What we collect</h2>
 <ul>
-  <li><strong>Account</strong> — your email address and authentication credentials.</li>
-  <li><strong>Pet health records you create</strong> — pets' names and details, vet visits,
+  <li><strong>Account:</strong> your email address and authentication credentials.</li>
+  <li><strong>Pet health records you create:</strong> pets' names and details, vet visits,
     vaccinations, lab results, care recommendations, and daily journal entries
     (meals, behavior, symptoms). This can include animal health information.</li>
-  <li><strong>Media you capture</strong> — photos of lab reports and documents, pet photos,
+  <li><strong>Media you capture:</strong> photos of lab reports and documents, pet photos,
     and audio recordings of vet visits, where you choose to add them.</li>
-  <li><strong>Basic technical data</strong> — device and app version needed to run the service.</li>
+  <li><strong>Basic technical data:</strong> device and app version needed to run the service.</li>
+  <li><strong>Service activity:</strong> limited events such as record creation,
+    document extraction, voice structuring, and Care sharing activity. Product
+    analytics use aggregate counts and do not include names, emails, notes,
+    transcripts, lab values, document paths, pictures, or audio.</li>
 </ul>
 <p>We do not sell your data, and we do not use it for advertising.</p>
 
 <h2>How we use it</h2>
 <ul>
   <li>To store and display your pet's health record for you.</li>
-  <li>To structure captured documents and audio into your record (see AI processing below).</li>
+  <li>To transcribe recordings on your iPhone and structure captured information into your record.</li>
   <li>To send optional local reminders before a vaccine or recheck is due (on-device).</li>
   <li>To operate, secure, and support the app.</li>
+  <li>To understand aggregate product adoption and feature use so we can improve Pawma.</li>
 </ul>
+<p>We do not use the content of veterinary records, notes, transcripts, pictures,
+or audio for general product analytics.</p>
 
-<h2>AI processing of your captures</h2>
-<p>When you capture a lab/document photo or a vet-visit audio recording, that content is
-sent to our processors solely to extract and structure it into your record:</p>
+<h2>Processing of your captures</h2>
+<p>Vet-visit recordings are transcribed on your iPhone. Pawma requires on-device
+recognition, which prevents the recording from being sent over the network for
+transcription. The original recording is uploaded only to Pawma's private Supabase
+storage when you choose to attach it to a visit. Short field dictation is held
+only in the app cache and deleted after the words are added to the field.</p>
+<p>When you ask Pawma to organize captured information, the following content is sent
+to our processor solely to structure it into an editable record:</p>
 <ul>
-  <li><strong>Anthropic (Claude)</strong> — structures documents and visit notes.</li>
-  <li><strong>OpenAI</strong> — transcribes vet-visit audio (supports Thai/English).</li>
+  <li><strong>OpenAI:</strong> structures lab documents and the text transcript
+    produced on your iPhone. Pawma does not send visit audio to OpenAI.</li>
 </ul>
-<p>These providers process the content to return a result to us; we do not permit them to use
-it to train their models. Only record what you are comfortable capturing, and obtain consent
+<p>OpenAI states that API inputs and outputs are not used to train its models by default.
+Standard API abuse-monitoring logs may be retained for up to 30 days unless a longer period
+is legally required. Only record what you are comfortable capturing, and obtain consent
 before recording other people (e.g. your veterinarian).</p>
 
 <h2>Where your data is stored</h2>
 <p>Records and files are stored with our infrastructure provider, <strong>Supabase</strong>
-(Postgres database and file storage), protected by per-user access rules so only you can
-access your account's data. Pet photos are stored for display within the app.</p>
+(Postgres database and file storage). Per-user access rules prevent one Pawma
+user from accessing another user's account data. A limited number of authorized
+Pawma administrators may access records only when necessary to operate, secure,
+support, recover, or comply with legal obligations for the service. Product
+analytics are provided to administrators only as aggregate counts. Pet photos
+are stored for display within the app.</p>
 
 <h2>Sharing</h2>
-<p>We share data only with the processors above (Supabase, Anthropic, OpenAI) to run the
+<p>We share data only with the processors above (Supabase and OpenAI) to run the
 service, or where required by law. We never sell it.</p>
 
 <h2>Retention</h2>
