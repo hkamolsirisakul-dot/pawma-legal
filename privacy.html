@@ -15,24 +15,40 @@
 </head>
 <body>
 <h1>Pawma: Privacy Policy</h1>
-<p class="meta">Last updated: 2 August 2026</p>
+<p class="meta">Last updated: 3 August 2026</p>
 
 <p>Pawma ("we", "us") is an owner-held pet health record. This policy explains what we
 collect, why, and your choices. Questions: <a href="mailto:swagwithus@thewaglabco.com">swagwithus@thewaglabco.com</a>.</p>
 
 <h2>Who we are</h2>
-<p>Pawma is operated by The Wag Lab Co., Thailand.
-The data controller is The Wag Lab Co.</p>
+<p>Pawma is operated by Hataikan Kamolsirisakul in Thailand. Hataikan
+Kamolsirisakul is the data controller for Pawma.</p>
+
+<h2>How we receive information</h2>
+<p>We receive information when you create an account, type or upload content,
+record a visit, use a feature, contact support, or accept a Care sharing
+invitation. If you choose Apple or Google sign-in, that provider supplies the
+account identifier, name, and email information you authorize it to share.</p>
 
 <h2>What we collect</h2>
 <ul>
-  <li><strong>Account:</strong> your email address and authentication credentials.</li>
+  <li><strong>Account:</strong> your name, email address, authentication provider,
+    provider account identifier, and security information needed to keep you
+    signed in. Pawma does not receive your Apple or Google password.</li>
   <li><strong>Pet health records you create:</strong> pets' names and details, vet visits,
     vaccinations, lab results, care recommendations, and daily journal entries
     (meals, behavior, symptoms). This can include animal health information.</li>
   <li><strong>Media you capture:</strong> photos of lab reports and documents, pet photos,
     and audio recordings of vet visits, where you choose to add them.</li>
-  <li><strong>Basic technical data:</strong> device and app version needed to run the service.</li>
+  <li><strong>Care sharing:</strong> the invited person's email address, the pets
+    selected by the owner, invitation and access status, expiry, and revocation
+    history.</li>
+  <li><strong>Support:</strong> messages and attachments you choose to send to our
+    support address.</li>
+  <li><strong>Basic technical and security data:</strong> app version, request
+    timestamps, authentication events, IP address, and user-agent information
+    needed to operate and protect the service. Supabase makes these service logs
+    available to Pawma for up to seven days on the current plan.</li>
   <li><strong>Service activity:</strong> limited events such as record creation,
     document extraction, voice structuring, and Care sharing activity. Product
     analytics use aggregate counts and do not include names, emails, notes,
@@ -51,6 +67,7 @@ The data controller is The Wag Lab Co.</p>
   <li>To store and display your pet's health record for you.</li>
   <li>To transcribe recordings on your iPhone and structure captured information into your record.</li>
   <li>To send optional local reminders before a vaccine or recheck is due (on-device).</li>
+  <li>To provide owner-controlled, read-only Care sharing.</li>
   <li>To operate, secure, and support the app.</li>
   <li>To understand aggregate product adoption and feature use so we can improve Pawma.</li>
 </ul>
@@ -71,33 +88,86 @@ to our processor solely to structure it into an editable record:</p>
 </ul>
 <p>OpenAI states that API inputs and outputs are not used to train its models by default.
 Standard API abuse-monitoring logs may be retained for up to 30 days unless a longer period
-is legally required. Only record what you are comfortable capturing, and obtain consent
+is legally required. Pawma sends these requests with storage disabled. Only record what you
+are comfortable capturing, and obtain consent
 before recording other people (e.g. your veterinarian).</p>
 
 <h2>Where your data is stored</h2>
 <p>Records and files are stored with our infrastructure provider, <strong>Supabase</strong>
-(Postgres database and file storage). Per-user access rules prevent one Pawma
-user from accessing another user's account data. A limited number of authorized
-Pawma administrators may access records only when necessary to operate, secure,
-support, recover, or comply with legal obligations for the service. Product
-analytics are provided to administrators only as aggregate counts. Pet photos
-are stored for display within the app.</p>
+(Postgres database, authentication, private file storage, and server functions).
+Per-user access rules prevent one Pawma user from accessing another user's
+account data. Pet photos, veterinary documents, observation photos, and audio
+are stored in private buckets. When Pawma needs to display a private file, it
+creates a short-lived signed link. The link expires automatically and is not a
+public file address.</p>
+<p>Encrypted operational copies of private files are kept in a separate,
+access-restricted <strong>Google Cloud Storage</strong> project for disaster
+recovery. A limited number of authorized Pawma administrators may access data
+only when necessary to operate, secure, support, recover, or comply with legal
+obligations for the service. Product analytics are provided to administrators
+only as aggregate counts.</p>
+
+<h2>Service providers</h2>
+<ul>
+  <li><strong>Supabase:</strong> authentication, database, private file storage,
+    server functions, and short-term database backups.</li>
+  <li><strong>OpenAI:</strong> structures the report content and transcript text
+    you choose to process. Visit audio is not sent to OpenAI.</li>
+  <li><strong>Apple:</strong> optional Sign in with Apple, on-device speech
+    recognition, local notifications, and device sharing functions.</li>
+  <li><strong>Google:</strong> optional Google sign-in, restricted disaster-recovery
+    storage, and support email services.</li>
+  <li><strong>Cloudflare:</strong> Turnstile security checks for email sign-in,
+    account creation, code requests, and password recovery.</li>
+</ul>
+<p>These providers may process data in countries outside your own. We require
+service providers to protect personal data consistently with this policy and
+applicable law and to use it only to provide their contracted services.</p>
 
 <h2>Sharing</h2>
-<p>We share data only with the processors above (Supabase and OpenAI) to run the
-service, or where required by law. We never sell it.</p>
+<p>If you use Care sharing, the person you invite must sign in with the invited
+email address. After acceptance, that person receives read-only access to the
+selected pets and their recorded visits, vaccinations, lab results, notes, and
+next care. Caregivers cannot edit, delete, invite, or reshare through Pawma.
+Private veterinary documents, observation photos, and audio remain owner-only
+in this release. The owner can revoke Care sharing at any time.</p>
+<p>If you export a Vet summary, Pawma creates a temporary PDF on your device and
+opens the operating system share sheet. Pawma deletes its temporary copy after
+sharing finishes. The recipient and destination are chosen by you, and Pawma
+cannot retrieve a copy after it leaves the app.</p>
+<p>We otherwise share data only with the service providers listed above to run
+Pawma, with a person you direct us to share it with, or where required by law.
+We never sell personal data.</p>
 
 <h2>Retention</h2>
-<p>We keep your data while your account is active. When you delete your account, we
-permanently delete your records, files, and account (see below).</p>
+<p>We keep your complete pet record while your account is active unless you
+explicitly delete a record. Pawma does not delete older records because of
+their age, account inactivity, or a future subscription change. Care sharing
+invitation and access history is kept while the owner's account remains active.</p>
+<p>When you delete your account, Pawma removes the live account, records, private
+files, sessions, and Care sharing access. Supabase may retain restricted
+database backup copies for up to seven days. Independent file backup copies are
+retained for no longer than 30 days after live deletion. Backup copies are not
+available through the app and are not used for analytics or ordinary service
+operations.</p>
+<p>OpenAI's standard API abuse-monitoring retention is described above. Support
+messages are kept only as long as reasonably needed to respond, maintain a
+support history, protect the service, or meet a legal obligation.</p>
 
 <h2>Your choices &amp; deleting your account</h2>
 <p>You can delete your account and <strong>all</strong> associated data at any time, in-app:
-<em>Settings → Delete account</em>. This permanently removes your records, photos, audio,
-and account and cannot be undone. The optional fixed account-exit response does
+<em>Settings, Account, Continue to delete account</em>. This removes your live records,
+photos, documents, audio, sharing access, sessions, and account and cannot be
+undone. Restricted backup copies expire within the periods described above. The optional fixed account-exit response does
 not delay deletion and is stored only after deletion succeeds, without a direct
 or stable identifier. You can also email
-<a href="mailto:swagwithus@thewaglabco.com">swagwithus@thewaglabco.com</a> to request deletion or a copy of your data.</p>
+<a href="mailto:swagwithus@thewaglabco.com">swagwithus@thewaglabco.com</a> to request access,
+correction, a copy, or deletion of your data.</p>
+<p>You can revoke Care sharing in the app. You can turn local reminders off in
+Pawma or in device Settings. You can change or withdraw camera, photo,
+microphone, speech-recognition, and notification permissions in device
+Settings. You may also revoke Apple or Google sign-in access through that
+provider's account controls.</p>
 
 <h2>Children</h2>
 <p>Pawma is not directed to children under 13 and we do not knowingly collect their data.</p>
