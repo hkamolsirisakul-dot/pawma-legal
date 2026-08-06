@@ -65,7 +65,7 @@ account identifier, name, and email information you authorize it to share.</p>
 <h2>How we use it</h2>
 <ul>
   <li>To store and display your pet's health record for you.</li>
-  <li>To transcribe recordings on your iPhone and structure captured information into your record.</li>
+  <li>To transcribe recordings privately on supported devices and structure captured information into your record.</li>
   <li>To send optional local reminders before a vaccine or recheck is due (on-device).</li>
   <li>To provide owner-controlled, read-only Care sharing.</li>
   <li>To operate, secure, and support the app.</li>
@@ -75,16 +75,18 @@ account identifier, name, and email information you authorize it to share.</p>
 or audio for general product analytics.</p>
 
 <h2>Processing of your captures</h2>
-<p>Vet-visit recordings are transcribed on your iPhone. Pawma requires on-device
-recognition, which prevents the recording from being sent over the network for
-transcription. The original recording is uploaded only to Pawma's private Supabase
-storage when you choose to attach it to a visit. Short field dictation is held
-only in the app cache and deleted after the words are added to the field.</p>
+<p>On iPhone, vet-visit recordings are transcribed on the device. Pawma requires
+on-device recognition, which prevents the recording from being sent over the network
+for transcription. Android version 1 does not offer Pawma's recording transcription;
+users may use their keyboard's own voice typing where available. The original recording
+is uploaded only to Pawma's private Supabase storage when you choose to attach it to a
+visit. Short field dictation is held only in the app cache and deleted after the words
+are added to the field.</p>
 <p>When you ask Pawma to organize captured information, the following content is sent
 to our processor solely to structure it into an editable record:</p>
 <ul>
   <li><strong>OpenAI:</strong> structures lab documents and the text transcript
-    produced on your iPhone. Pawma does not send visit audio to OpenAI.</li>
+    produced on a supported device. Pawma does not send visit audio to OpenAI.</li>
 </ul>
 <p>OpenAI states that API inputs and outputs are not used to train its models by default.
 Standard API abuse-monitoring logs may be retained for up to 30 days unless a longer period
@@ -114,7 +116,7 @@ only as aggregate counts.</p>
   <li><strong>OpenAI:</strong> structures the report content and transcript text
     you choose to process. Visit audio is not sent to OpenAI.</li>
   <li><strong>Apple:</strong> optional Sign in with Apple, on-device speech
-    recognition, local notifications, and device sharing functions.</li>
+    recognition on iPhone, local notifications, and device sharing functions.</li>
   <li><strong>Google:</strong> optional Google sign-in, restricted disaster-recovery
     storage, and support email services.</li>
   <li><strong>Cloudflare:</strong> Turnstile security checks for email sign-in,
@@ -162,7 +164,8 @@ undone. Restricted backup copies expire within the periods described above. The 
 not delay deletion and is stored only after deletion succeeds, without a direct
 or stable identifier. You can also email
 <a href="mailto:swagwithus@thewaglabco.com">swagwithus@thewaglabco.com</a> to request access,
-correction, a copy, or deletion of your data.</p>
+correction, a copy, or deletion of your data. If you no longer have Pawma installed,
+use the <a href="delete-account.html">Pawma account deletion request page</a>.</p>
 <p>You can revoke Care sharing in the app. You can turn local reminders off in
 Pawma or in device Settings. You can change or withdraw camera, photo,
 microphone, speech-recognition, and notification permissions in device
